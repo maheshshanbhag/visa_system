@@ -17,7 +17,7 @@ const Center = () => {
                 </div>
             </div>
         </div>
-        <div className='md:w-1/2 md:flex md:flex-col md:gap-[1.7vw] md:mt-5 mt-[8vw] flex-col pl-[10vw] md:pl-0 w-full gap-4'>
+        <div className='md:w-1/2 md:flex md:flex-col md:gap-[1.7vw] md:mt-5 mt-[8vw] flex-col pl-[8vw] md:pl-0 w-full gap-4 md:pr-0 pr-[8vw]'>
             <div className='flex gap-[0.7vw] flex-row '>
                 <GiCommercialAirplane className='text-[#be0b32] text-2xl'/>
                 <p>WHO ARE IMIGO</p>
