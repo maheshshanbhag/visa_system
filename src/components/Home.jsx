@@ -35,26 +35,26 @@ const Home = () => {
       </div>
 
       {/* Image section with rotating circle */}
-      <div className='md:w-1/2 relative flex items-center justify-center h-[550px] md:h-[650px] bottom-13'>
-        <div className='relative w-full h-full flex items-center justify-center'>
-            {/* Rotating circle image - made larger */}
-            <img 
-            fetchpriority="high" 
-            decoding="async" 
-            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
-            alt="Country circle" 
-            className='circle absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] object-contain'
-            />
-            
-            {/* Centered person image - made larger */}
-            <img 
-            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
-            alt="Person" 
-            className='absolute rounded-full h-[250px] w-[250px] md:h-[350px] md:w-[350px] object-cover z-10'
-            />
-        </div>
-
-      </div>
+      <div className="md:w-1/2 relative h-[550px] md:h-[650px] flex items-center justify-center">
+  {/* Container for the map elements with proper positioning */}
+  <div className="absolute right-0 top-0 w-full h-full md:w-[700px] md:h-[700px] overflow-visible">
+    {/* Rotating circle image */}
+    <img 
+      fetchpriority="high" 
+      decoding="async" 
+      src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
+      alt="Country circle" 
+      className="circle absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] md:w-[700px] md:h-[700px]"
+    />
+    
+    {/* Centered person image */}
+    <img 
+      src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
+      alt="Person" 
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full h-[250px] w-[250px] md:h-[380px] md:w-[380px] object-cover z-10"
+    />
+  </div>
+    </div>
     </div>
   );
 };
