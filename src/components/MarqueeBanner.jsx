@@ -31,13 +31,13 @@ const MarqueeBanner = () => {
     >
       <div
         ref={contentRef}
-        className="whitespace-nowrap text-white text-lg font-semibold tracking-wider flex justify-end gap-10"
+        className="whitespace-nowrap text-white text-lg font-semibold tracking-wider flex  gap-10"
       >
-        ✨ Get Free Online Visa Assessment! ✨
-        ⭐ Fast Process ⭐
-        💼 100% Expert Support!
-        ✈️ Start Your Journey Today!
-        📞 Contact Us Anytime!
+        <h2>✨ Get Free Online Visa Assessment! ✨</h2>
+        <h2>⭐ Fast Process ⭐</h2>
+        <h2>💼 100% Expert Support!</h2>
+        <h2>✈️ Start Your Journey Today!</h2>
+        <h2>📞 Contact Us Anytime!</h2>
       </div>
     </div>
   );
