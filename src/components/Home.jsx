@@ -1,53 +1,62 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { GiCommercialAirplane } from "react-icons/gi";
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 
 const Home = () => {
-
-    useGSAP(()=>{
-        gsap.to(".circle",{
-            rotate:360,
-            duration: 25,     // Slower spin (try 30 or more if needed)
-            repeat: -1,  
-            ease:"linear"
-        })
-    })
+  useEffect(() => {
+    // GSAP animation for rotating the circle
+    gsap.to(".circle", {
+      rotate: 360,
+      duration: 25,
+      repeat: -1,
+      ease: "linear"
+    });
+  }, []);
 
   return (
-    <div className='w-full bg-zinc-200 md:h-[100vh] md:py-28 md:px-17 md:flex md:flex-row gap-[2vw] relative overflow-y-hidden overflow-x-hidden justify-between px-5 flex-col'>
-        <div className='font-bold flex gap-5 flex-col sm:mt-0 mt-7'>
-            <div className='flex gap-3 font-bold items-center font-serif'>
-                <GiCommercialAirplane className='text-[#be0b32] text-2xl'/>
-                <p className='text-[#be0b32] '>TRUSTED IMMIGRATION PARTNER</p>
-            </div>
-            <div className='text-6xl font-serif  tracking-tighter'>
-                <h1>Our simple approach to</h1>
-                <h1>immigration process</h1>
-            </div>
-            <div>
-                <p className='font-light w-[]'>We are trusted immigration consultants who can handle your case and our professional registered agents will assist you with your visa application.</p>
-            </div>
-            <div className='sm:mt-4 flex sm:flex-row flex-col gap-5'>
-                <button className='p-4 bg-[#be0b32] text-white border-2-white mr-7 text-[20px] rounded-2xl'>Discover Solutions</button>
-                <button className='p-4 bg-[#be0b32] text-white border-2-white mr-7 text-[20px] rounded-2xl'>Book A Consulatation</button>
-            </div>
+    <div className='w-full bg-zinc-200 min-h-screen md:py-28 md:px-16 py-8 px-5 flex md:flex-row flex-col gap-8 relative overflow-hidden justify-between'>
+      {/* Text content section */}
+      <div className='font-bold flex gap-5 flex-col sm:mt-0 mt-7 md:w-1/2'>
+        <div className='flex gap-3 font-bold items-center font-serif'>
+          <GiCommercialAirplane className='text-[#be0b32] text-2xl'/>
+          <p className='text-[#be0b32]'>TRUSTED IMMIGRATION PARTNER</p>
         </div>
-        <div className='md:w-[700px] md:h-[600px] p-5 '>
-            <div className='bottom-10'>
-                <div className='h-full w-full relative'>
-                    <img fetchpriority="high" decoding="async" width="780" height="853" src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" class="attachment-full size-full wp-image-339" alt="" className='circle md:w-[780] md:h-[853] '></img>
-                    <img src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" alt="" className='rounded-full 
-                        h-[250px] w-[250px] 
-                        absolute 
-                        bottom-[46px] left-1/2 -translate-x-1/2 
-                        md:h-[410px] md:w-[410px] 
-                        md:bottom-[4.8vw] md:left-[60px] md:translate-x-0' />
-                </div>
-            </div>
+        <div className='text-5xl md:text-6xl font-serif tracking-tighter'>
+          <h1>Our simple approach to</h1>
+          <h1>immigration process</h1>
         </div>
-    </div>
-  )
-}
+        <div>
+          <p className='font-light'>We are trusted immigration consultants who can handle your case and our professional registered agents will assist you with your visa application.</p>
+        </div>
+        <div className='mt-6 flex sm:flex-row flex-col gap-5'>
+          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl'>Discover Solutions</button>
+          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl'>Book A Consultation</button>
+        </div>
+      </div>
 
-export default Home
+      {/* Image section with rotating circle */}
+      <div className='md:w-1/2 relative flex items-center justify-center h-[550px] md:h-[650px] bottom-13'>
+        <div className='relative w-full h-full flex items-center justify-center'>
+            {/* Rotating circle image - made larger */}
+            <img 
+            fetchpriority="high" 
+            decoding="async" 
+            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
+            alt="Country circle" 
+            className='circle absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] object-contain'
+            />
+            
+            {/* Centered person image - made larger */}
+            <img 
+            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
+            alt="Person" 
+            className='absolute rounded-full h-[250px] w-[250px] md:h-[350px] md:w-[350px] object-cover z-10'
+            />
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Home;
