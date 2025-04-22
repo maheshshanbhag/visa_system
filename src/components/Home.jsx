@@ -35,30 +35,7 @@ const Home = () => {
       </div>
 
       {/* Image section with rotating circle */}
-      <div className="md:w-1/2 relative h-[550px] md:h-[650px] flex items-center justify-center overflow-hidden">
-  {/* Static container that holds both images */}
-  <div className="relative w-full h-full flex items-center justify-center">
-    {/* Rotating circle wrapper */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <img 
-        fetchpriority="high" 
-        decoding="async" 
-        src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
-        alt="Country circle" 
-        className="circle w-[450px] h-[450px] md:w-[700px] md:h-[700px] object-contain"
-      />
-    </div>
-    
-    {/* Person image wrapper - same position as circle but higher z-index */}
-    <div className="absolute inset-0 flex items-center justify-center z-10">
-      <img 
-        src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
-        alt="Person" 
-        className="rounded-full h-[250px] w-[250px] md:h-[380px] md:w-[380px] object-cover"
-      />
-    </div>
-  </div>
-</div>
+ 
     </div>
   );
 };
