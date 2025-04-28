@@ -4,7 +4,7 @@ import { GiCommercialAirplane } from "react-icons/gi";
 
 const Center = () => {
   return (
-    <div className='h-full w-full md:px-30 md:flex gap-[1vw] mt-2 pb-5 bg-zinc-200 md:flex-row flex-col'>
+    <div className='h-full w-full md:px-30 md:flex gap-[1vw] mt-2 pb-5  md:flex-row flex-col'>
         <div className='p-10 md:w-1/2 relative pl-10 w-full'>
             <img src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/about-img-1-1.jpg" alt=""  className='bg-cover'/>
             <div className=''>
@@ -20,7 +20,7 @@ const Center = () => {
         <div className='md:w-1/2 md:flex md:flex-col md:gap-[1.7vw] md:mt-5 mt-[8vw] flex-col pl-[8vw] md:pl-0 w-full gap-4 md:pr-0 pr-[8vw]'>
             <div className='flex gap-[0.7vw] flex-row '>
                 <GiCommercialAirplane className='text-[#be0b32] text-2xl'/>
-                <p>WHO ARE IMIGO</p>
+                <p className="font-bold text-[#be0b32] text-2xl">About VisaEase</p>
             </div>
             <div className='md:text-4xl font-bold text-2xl'>
                 <h1>Not just traditional visa &</h1>

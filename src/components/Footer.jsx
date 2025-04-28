@@ -52,7 +52,7 @@ const EmailIcon = () => (
 
 const Footer = () => {
   return (
-    <div className="w-full bg-blue-900 text-white py-12 px-8 relative overflow-hidden">
+    <div  className="w-full bg-blue-900 text-white py-12 px-8 relative overflow-hidden">
       {/* Multiple Airplane Path Designs for enhanced visual effect */}
       <div className="absolute bottom-0 left-0 w-32 h-32">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="opacity-10">
@@ -68,13 +68,13 @@ const Footer = () => {
       {/* Contact Info Bar */}
       <div className="container mx-auto mb-8 border-b border-blue-800 pb-6">
         <div className="flex flex-wrap justify-between items-center">
-          <div className="flex items-center space-x-2 mb-4 md:mb-0">
+          <div className="flex items-center space-x-2 mb-4 md:mb-0">  
             <PhoneIcon />
             <span>+1 (888) 456-7890</span>
           </div>
           <div className="flex items-center space-x-2 mb-4 md:mb-0">
             <EmailIcon />
-            <span>info@imigo.com</span>
+            <span>info@VisaEase.com</span>
           </div>
           <div className="flex items-center space-x-2">
             <LocationIcon />
@@ -93,7 +93,7 @@ const Footer = () => {
               <div className="bg-red-600 p-2 rounded-md">
                 <PlaneIcon />
               </div>
-              <span className="text-2xl font-bold">Imigo</span>
+              <span className="text-2xl font-bold">VisaEase</span>
             </div>
             <p className="text-lg">Your Global Journey Starts Here</p>
             <p className="text-lg">Trusted Visa Experts</p>

@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='w-full bg-zinc-200 min-h-screen md:py-28 md:px-16 py-8 px-5 flex md:flex-row flex-col gap-8 relative overflow-hidden justify-between'>
+    <div   className='w-full bg-zinc-200 min-h-screen md:py-28 md:px-16 py-8 px-5 flex md:flex-row flex-col gap-8 relative overflow-hidden justify-between'>
 
       {/* Text content */}
       <div className='font-bold flex gap-5 flex-col sm:mt-0 mt-7 md:w-1/2'>

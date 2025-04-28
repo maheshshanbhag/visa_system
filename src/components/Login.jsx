@@ -17,7 +17,6 @@ const LoginRegistration = () => {
 
   return (
     <div className="min-h-screen bg-blue-900 flex items-center justify-center px-6 py-12 relative overflow-hidden">
-      {/* Background SVGs */}
       {[0, 1, 2].map((_, idx) => (
         <div
           key={idx}
@@ -40,7 +39,7 @@ const LoginRegistration = () => {
               <div className="bg-red-600 p-2 rounded-md">
                 <PlaneIcon />
               </div>
-              <span className="text-2xl font-bold">Imigo</span>
+              <span className="text-2xl font-bold">VisaEase</span>
             </div>
             <h2 className="text-3xl font-bold mb-4">Your Global Journey Starts Here</h2>
             <p className="mb-8 opacity-80">Join thousands of students and professionals who've achieved their international dreams with our help.</p>

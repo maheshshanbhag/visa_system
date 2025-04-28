@@ -6,7 +6,6 @@ const MarqueeBanner = () => {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // Slide in from top
     gsap.fromTo(
       bannerRef.current,
       { y: -100, opacity: 0 },
@@ -17,7 +16,7 @@ const MarqueeBanner = () => {
     const width = contentRef.current.offsetWidth;
 
     gsap.to(contentRef.current, {
-      x: `-${width}`,
+      x: `${width}`,
       ease: 'linear',
       duration: 15,
       repeat: -1,

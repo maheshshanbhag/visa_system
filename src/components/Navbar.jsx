@@ -57,13 +57,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full px-[5vw] py-[1.7vw] flex items-center justify-between bg-zinc-50 shadow-md">
+      <div data-scroll data-scroll-speed="-.5" className="w-full px-[5vw] py-[1.7vw] flex items-center justify-between bg-zinc-50 shadow-md">
         <div className=''>
-          <img
-            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/logo.svg"
-            alt="logo"
-            className="w-[120px] logo"
-          />
+          <h2 className='text-[#be0b32] text-2xl font-bold '>VisaEase</h2>
+          
         </div>
 
         <div className="hidden sm:flex gap-[2vw] text-[18px] font-serif font-bold links">

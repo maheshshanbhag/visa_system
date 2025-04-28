@@ -9,17 +9,23 @@ import Level from './components/Level'
 import Footer from './components/Footer'
 import MarqueeBanner from './components/MarqueeBanner' 
 import Login from './components/Login' 
+import SlideSwpr from './components/SlideSwpr';
+import LocomotiveScroll from 'locomotive-scroll';
+
 
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
   return (
+    
     <Routes>
       <Route path="/" element={
         <>
           <Navbar />
           <Home />
           <SideScroll />
-          <Center />
           <Level />
+          <Center />
+          <SlideSwpr />
           <Footer />
         </>
       } />
