@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div   className='w-full bg-zinc-200 min-h-screen md:py-28 md:px-16 py-8 px-5 flex md:flex-row flex-col gap-8 relative overflow-hidden justify-between'>
+    <div className='w-full bg-zinc-200 min-h-screen md:py-28 md:px-16 py-8 px-5 flex md:flex-row flex-col gap-8 relative overflow-hidden justify-between'>
 
       {/* Text content */}
       <div className='font-bold flex gap-5 flex-col sm:mt-0 mt-7 md:w-1/2'>
@@ -39,22 +39,21 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Image section */}
+      {/* Image section with rotating circle */}
       <div className='md:w-[650px] md:h-[600px] relative flex items-center justify-center bottom-3'>
-  <div className='relative'>
-    <img 
-      src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
-      className='circle md:w-[580px] md:h-[580px] h-[400px] w-[400px]' 
-      draggable="false"
-    />
-    <img 
-      src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
-      className='rounded-full w-[290px] h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[370px] md:h-[370px]' 
-      draggable="false"
-    />
-  </div>
-</div>
-
+        <div className='relative'>
+          <img 
+            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-country-circle-img.png" 
+            className='circle md:w-[580px] md:h-[580px] h-[400px] w-[400px]' 
+            draggable="false"
+          />
+          <img 
+            src="https://demo.awaikenthemes.com/imigo/wp-content/uploads/2024/12/hero-image.jpg" 
+            className='rounded-full w-[290px] h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[370px] md:h-[370px]' 
+            draggable="false"
+          />
+        </div>
+      </div>
     </div>
   );
 };
