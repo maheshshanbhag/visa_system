@@ -146,21 +146,6 @@ const SideScroll = () => {
           </div>
         </div>
 
-        {/* Options Section */}
-        <div className="text-xl md:text-2xl flex items-center justify-evenly text-blue-500 link py-8 font-semibold">
-          <a href="#" className="hover:text-blue-500 transition-colors duration-300">
-            Option 1
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors duration-300">
-            Option 2
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors duration-300">
-            Option 3
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors duration-300">
-            Option 4
-          </a>
-        </div>
       </div>
     </>
   );

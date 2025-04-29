@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 // SVG Icon Components
 const PlaneIcon = () => (
@@ -50,9 +50,14 @@ const EmailIcon = () => (
   </svg>
 );
 
-const Footer = () => {
+const Footer = ((props, ref) => {
   return (
-    <div  className="w-full bg-blue-900 text-white py-12 px-8 relative overflow-hidden">
+    <footer 
+    ref={ref} 
+    id="contact-section"
+    className="w-full bg-blue-900 text-white py-12 px-8 relative overflow-hidden"
+    data-scroll-section
+  >  
       {/* Multiple Airplane Path Designs for enhanced visual effect */}
       <div className="absolute bottom-0 left-0 w-32 h-32">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="opacity-10">
@@ -215,8 +220,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
-};
+});
 
 export default Footer;

@@ -1,0 +1,21 @@
+[33mfab067e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: commit: some changes added
+[33m91e9219[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: checkout: moving from gh-pages to main
+[33m07809ab[m[33m ([m[1;32mgh-pages[m[33m)[m HEAD@{2}: commit: some changes added
+[33m056c658[m HEAD@{3}: commit: some changes added
+[33m8fef5e3[m HEAD@{4}: commit: some changes
+[33m01f3e35[m[33m ([m[1;31morigin/gh-pages[m[33m)[m HEAD@{5}: commit (merge): Fixed merge conflict in index.html
+[33m91e9219[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{6}: checkout: moving from main to gh-pages
+[33m91e9219[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{7}: commit: Updated package.json and added new files
+[33me1e72c6[m HEAD@{8}: commit (merge): Resolved merge conflict and added rotating circle image section
+[33mfa5d212[m HEAD@{9}: commit: some changes
+[33m52c0c1d[m HEAD@{10}: commit: Fix image positioning in hero section
+[33mb45e2f6[m HEAD@{11}: commit: Fix image positioning in hero section
+[33mfad3164[m HEAD@{12}: commit: some changes
+[33m0c249f9[m HEAD@{13}: commit: some changes
+[33m630ec3d[m HEAD@{14}: commit: some changes
+[33mdc12f91[m HEAD@{15}: commit: some changes
+[33m71b1a9b[m HEAD@{16}: commit: some changes
+[33m3a691b8[m HEAD@{17}: commit: other work
+[33m6d7eb97[m HEAD@{18}: commit (merge): resolved
+[33mc9e6569[m HEAD@{19}: Branch: renamed refs/heads/master to refs/heads/main
+[33mc9e6569[m HEAD@{21}: commit (initial): second commit

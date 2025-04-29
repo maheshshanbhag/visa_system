@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link   } from 'react-router-dom';
 import { GiCommercialAirplane } from "react-icons/gi";
 import gsap from 'gsap';
 
@@ -34,8 +35,15 @@ const Home = () => {
         </p>
 
         <div className='mt-6 flex sm:flex-row flex-col gap-5'>
-          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl'>Discover Solutions</button>
+          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl '>Discover Solutions</button>
           <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl'>Book A Consultation</button>
+        </div>
+        <div className='flex justify-center md:block'>
+          <Link className='' to="/check-visa">
+          <button className="check-visa-button p-4 bg-[#be0b32] text-white text-lg rounded-2xl px-[10vw] sd:px-[15vw] md:w-[415px]">
+            Check Visa
+          </button>
+        </Link>
         </div>
       </div>
 
