@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link   } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { GiCommercialAirplane } from "react-icons/gi";
 import gsap from 'gsap';
 
@@ -34,13 +34,17 @@ const Home = () => {
           We are trusted immigration consultants who can handle your case and our professional registered agents will assist you with your visa application.
         </p>
 
-        <div className='mt-6 flex sm:flex-row flex-col gap-5'>
-          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl '>Discover Solutions</button>
-          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl'>Book A Consultation</button>
+        <div className='mt-6 flex sm:flex-row flex-col gap-5 '>
+        <Link to="/visa-enquiry">
+          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl w-[89vw] md:w-fit'>Get Started</button>
+        </Link>   
+        <Link >       
+          <button className='p-4 bg-[#be0b32] text-white text-lg rounded-2xl w-[89vw] md:w-fit'>Book A Consultation</button>
+          </Link>
         </div>
-        <div className='flex justify-center md:block'>
+        <div className=''>
           <Link className='' to="/check-visa">
-          <button className="check-visa-button p-4 bg-[#be0b32] text-white text-lg rounded-2xl px-[10vw] sd:px-[15vw] md:w-[415px]">
+          <button className="check-visa-button p-4 bg-[#be0b32] text-white text-lg rounded-2xl w-[89vw] sm:px-[2vw] md:w-[352px]">
             Check Visa
           </button>
         </Link>

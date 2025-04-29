@@ -126,7 +126,6 @@ const App = () => {
           <VisaInquiryForm />
         </div>
       } />
-      
       <Route path="/check-visa" element={
         <div >
           <CheckVisa />
