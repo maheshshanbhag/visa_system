@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+
+//localStorage.clear();
+
 
 const LoginRegistration = () => {
+
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -8,6 +13,58 @@ const LoginRegistration = () => {
   const [phone, setPhone] = useState('');
 
   const toggleForm = () => setIsLogin(!isLogin);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existingUser = users.find((user) => user.email === email);
+    if (existingUser) {
+      alert('This email is already registered!');
+      return;
+    }
+
+    const newUser = { email, password, name, phone };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    const templateParams = {
+      to_name: name,
+      to_email: email,
+      reply_to: email,
+      message: 'Thank you for registering with VisaEase!',
+    };
+
+    emailjs
+      .send('service_ds49h36', 'template_icm916p', templateParams, 'V1Cak8SnaEgiBy5P0')
+      .then((response) => {
+        alert('Registration successful! Confirmation email sent.');
+        console.log('Email sent successfully:', response.status, response.text);
+      })
+      .catch((err) => {
+        console.error('Failed to send email:', err);
+        alert('Failed to send confirmation email.');
+      });
+
+    setEmail('');
+    setPassword('');
+    setName('');
+    setPhone('');
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const user = users.find((user) => user.email === email && user.password === password);
+
+    if (user) {
+      alert('Logged in successfully');
+    } else {
+      alert('Invalid email or password');
+    }
+  };
 
   const PlaneIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 24 24">
@@ -30,9 +87,7 @@ const LoginRegistration = () => {
         </div>
       ))}
 
-      {/* Card */}
       <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-full max-w-4xl flex flex-col md:flex-row">
-        {/* Left Side */}
         <div className="bg-blue-900 text-white p-8 md:w-2/5 flex flex-col justify-between relative">
           <div className="z-10">
             <div className="flex items-center space-x-2 mb-8">
@@ -44,11 +99,7 @@ const LoginRegistration = () => {
             <h2 className="text-3xl font-bold mb-4">Your Global Journey Starts Here</h2>
             <p className="mb-8 opacity-80">Join thousands of students and professionals who've achieved their international dreams with our help.</p>
             <div className="flex gap-4 mb-8">
-              {[
-                { value: '15+', label: 'Years' },
-                { value: '50+', label: 'Countries' },
-                { value: '10k+', label: 'Clients' },
-              ].map((item, idx) => (
+              {[{ value: '15+', label: 'Years' }, { value: '50+', label: 'Countries' }, { value: '10k+', label: 'Clients' }].map((item, idx) => (
                 <div key={idx} className="bg-blue-800 p-3 h-16 w-16 rounded-lg flex flex-col items-center justify-center text-xs">
                   <span className="font-bold text-lg">{item.value}</span>
                   <span>{item.label}</span>
@@ -56,14 +107,8 @@ const LoginRegistration = () => {
               ))}
             </div>
           </div>
-          <div className="absolute bottom-8 right-8 opacity-20">
-            <svg width="120" height="120" viewBox="0 0 24 24" fill="white">
-              <path d="M22 16.5H8c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zM16.94 2c-.3 0-.59.13-.79.33l-1.66 1.66c-.29.29-.29.77 0 1.06.29.29.77.29 1.06 0l.72-.72 3.5 3.5-9.74 9.74c-.29.29-.29.77 0 1.06.15.15.34.22.53.22s.38-.07.53-.22l9.74-9.74 3.5 3.5-.72.72c-.29.29-.29.77 0 1.06.15.15.34.22.53.22s.38-.07.53-.22l1.66-1.66c.29-.29.29-.77 0-1.06l-8.07-8.07c-.2-.2-.49-.33-.79-.33z" />
-            </svg>
-          </div>
         </div>
 
-        {/* Right Side */}
         <div className="p-8 md:w-3/5 relative">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-2xl font-bold text-gray-800">
@@ -71,17 +116,13 @@ const LoginRegistration = () => {
             </h3>
             <div className="flex space-x-2">
               <button
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  isLogin ? 'bg-red-600 text-white' : 'text-gray-500'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${isLogin ? 'bg-red-600 text-white' : 'text-gray-500'}`}
                 onClick={() => setIsLogin(true)}
               >
                 Login
               </button>
               <button
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  !isLogin ? 'bg-red-600 text-white' : 'text-gray-500'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${!isLogin ? 'bg-red-600 text-white' : 'text-gray-500'}`}
                 onClick={() => setIsLogin(false)}
               >
                 Register
@@ -89,44 +130,8 @@ const LoginRegistration = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            {isLogin ? (
-              <>
-                <div>
-                  <label htmlFor="email-login" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email-login"
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="password-login" className="block text-sm font-medium text-gray-700 mb-2">
-                    Password
-                  </label>
-                  <input
-                    id="password-login"
-                    type="password"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <label className="flex items-center text-gray-600">
-                    <input type="checkbox" className="h-4 w-4 text-red-600" />
-                    <span className="ml-2">Remember me</span>
-                  </label>
-                  <a href="#" className="text-red-600 hover:underline">Forgot password?</a>
-                </div>
-              </>
-            ) : (
+          <form onSubmit={isLogin ? handleLogin : handleRegister} className="space-y-6">
+            {!isLogin && (
               <>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -135,80 +140,70 @@ const LoginRegistration = () => {
                   <input
                     id="name"
                     type="text"
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                     placeholder="John Doe"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label htmlFor="email-register" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email-register"
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-                    placeholder="+1 (123) 456-7890"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="password-register" className="block text-sm font-medium text-gray-700 mb-2">
-                    Password
-                  </label>
-                  <input
-                    id="password-register"
-                    type="password"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-                    placeholder="Create a password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
               </>
             )}
 
-            <button className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
+              </label>
+              <input
+                id="email"
+                type="email"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            {!isLogin && (
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                  placeholder="+1 (123) 456-7890"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+            )}
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                placeholder={isLogin ? 'Enter your password' : 'Create a password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
+            >
               <span>{isLogin ? 'Sign In' : 'Create Account'}</span>
               <PlaneIcon />
             </button>
-
-            {/* Social Logins */}
-            <div className="text-center mt-8">
-              <div className="relative mb-6">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-gray-500">Or continue with</span>
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                {['Google', 'Facebook', 'Apple'].map((provider, idx) => (
-                  <div
-                    key={idx}
-                    className="border rounded-lg p-3 text-center cursor-pointer hover:bg-gray-50 transition-colors"
-                  >
-                    <span>{provider}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             <div className="text-center mt-6">
               <p className="text-sm text-gray-600">
@@ -218,7 +213,7 @@ const LoginRegistration = () => {
                 </button>
               </p>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

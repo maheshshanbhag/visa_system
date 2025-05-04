@@ -8,9 +8,7 @@ import Center from './components/Center';
 import Level from './components/Level';
 import Footer from './components/Footer';
 import MarqueeBanner from './components/MarqueeBanner';
-
 import Login from './components/Login';
-
 import SlideSwpr from './components/SlideSwpr';
 import LocomotiveScroll from 'locomotive-scroll';
 import About from './components/About';
@@ -24,6 +22,8 @@ const App = () => {
   const location = useLocation();
   const locomotiveScrollRef = useRef(null);
   
+
+
   // Initialize locomotive scroll
   useEffect(() => {
     if (!locomotiveScrollRef.current) {
@@ -83,6 +83,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={
+        
         <div data-scroll-container>
           <Navbar scrollToFooter={scrollToFooter} />
           <Home />
