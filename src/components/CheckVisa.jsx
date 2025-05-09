@@ -42,7 +42,7 @@ const CheckVisa = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[url('https://i.pinimg.com/736x/35/e3/92/35e3925d98e133554ce6d2bb4f08ee00.jpg')] md:bg-top bg-no-repeat bg-[#96b8d2] p-4">
+    <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-blue-400 to-red-800 p-4">
       <div className="w-full max-w-md p-6 bg-white shadow-lg rounded-lg border border-gray-300">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Check Your Visa Status Here</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
