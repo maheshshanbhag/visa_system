@@ -72,14 +72,14 @@ const Navbar = ({ scrollToFooter }) => {
       <div data-scroll data-scroll-speed="-.5" className="w-full px-[5vw] py-[1.7vw] flex items-center justify-between bg-zinc-50 shadow-md">
         <h2 className='text-[#be0b32] text-2xl font-bold logo'>VisaEase</h2>
         
-        <div className="hidden sm:flex gap-[2vw] text-[18px] font-serif font-bold links">
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
-          <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+        <div className="hidden sm:flex gap-[2vw] text-[18px] font-serif font-bold links ">
+          <Link to="/" onClick={() => setMenuOpen(false)} className='hover:text-[#be0b32]'>Home</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)} className='hover:text-[#be0b32]'>About Us</Link>
+          <Link to="/services" onClick={() => setMenuOpen(false)} className='hover:text-[#be0b32]'>Services</Link>
+          <Link to="/blog" onClick={() => setMenuOpen(false)} className='hover:text-[#be0b32]'>Blog</Link>
           <button 
             onClick={scrollToFooter}
-            className="contact"
+            className="contact cursor-pointer hover:text-[#be0b32]"
           >
             Contact Us
           </button>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const CheckVisa = () => {
   const [email, setEmail] = useState('');
@@ -7,16 +8,41 @@ const CheckVisa = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate sending an email
-    alert("Email sent to preview document process");
-    // Optionally clear form inputs
-    setEmail('');
-    setUsername('');
-    setPassword('');
+
+    // Dummy visa data (replace with dynamic data later)
+    const templateParams = {
+      to_name: username,
+      to_email: email,
+      application_id: 'APP123456',
+      visa_type: 'Tourist Visa',
+      status: 'Approved',
+      last_updated: new Date().toLocaleDateString(),
+      eta_days: '2',
+    };
+
+    emailjs
+      .send(
+        'service_xss8jle',      // Replace with your actual service ID
+        'template_e6t3d7r',  // Replace with your actual template ID
+        templateParams,
+        'V1Cak8SnaEgiBy5P0'     // Replace with your public key
+      )
+      .then((res) => {
+        console.log('Email sent:', res.status, res.text);
+        alert('Visa status email sent!');
+        // Clear form
+        setEmail('');
+        setUsername('');
+        setPassword('');
+      })
+      .catch((err) => {
+        console.error('Email error:', err);
+        alert('Failed to send visa status email.');
+      });
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-700 to-[#be0b32]">
+    <div className="flex justify-center items-center min-h-screen bg-[url('https://i.pinimg.com/736x/35/e3/92/35e3925d98e133554ce6d2bb4f08ee00.jpg')] md:bg-top bg-no-repeat bg-[#96b8d2] p-4">
       <div className="w-full max-w-md p-6 bg-white shadow-lg rounded-lg border border-gray-300">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Check Your Visa Status Here</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

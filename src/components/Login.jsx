@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-//localStorage.clear();
+localStorage.clear();
 
 
 const LoginRegistration = () => {

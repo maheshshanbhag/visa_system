@@ -45,7 +45,7 @@ const About = () => {
       {/* Hero Section */}
       <section
         ref={(el) => (sectionsRef.current[0] = el)}
-        className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-700 to-[#be0b32] text-white relative"
+        className="min-h-screen flex flex-col items-center justify-center bg-[#f2f0ca] text-white relative"
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 p-6 text-center max-w-3xl">
